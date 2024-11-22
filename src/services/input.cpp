@@ -53,8 +53,8 @@ void process(const SDL_Event &e)
 	}
 
 	switch (e.type) {
-	case SDL_EVENT_KEY_DOWN: process_button(e.key.keysym.sym, true, e.key.repeat); break;
-	case SDL_EVENT_KEY_UP:   process_button(e.key.keysym.sym, false, true); break;
+	case SDL_EVENT_KEY_DOWN: process_button(e.key.key, true, e.key.repeat); break;
+	case SDL_EVENT_KEY_UP:   process_button(e.key.key, false, true); break;
 	default: break;
 	}
 }

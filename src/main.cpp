@@ -1,4 +1,4 @@
-#include "application.hpp"
+#include "application.h"
 #include "inputcodes.h"
 #include "platform/sdl.h"
 
@@ -32,11 +32,11 @@ int main(int argc, char *argv[])
 	proto::input::ActionSet main(
 		to_underlying(ActionSet::MAIN),
 		std::vector{
-			proto::input::state("Move Foward",   to_underlying(State::MOVE_FORWARD),  SDLK_w),
-			proto::input::state("Move Left",     to_underlying(State::MOVE_LEFT),     SDLK_a),
-			proto::input::state("Move Backward", to_underlying(State::MOVE_BACKWARD), SDLK_s),
-			proto::input::state("Move Right",    to_underlying(State::MOVE_RIGHT),    SDLK_d),
-			proto::input::action("Quit", 	     to_underlying(Action::QUIT),         SDLK_q)
+			proto::input::state("Move Foward",   to_underlying(State::MOVE_FORWARD),  SDLK_W),
+			proto::input::state("Move Left",     to_underlying(State::MOVE_LEFT),     SDLK_A),
+			proto::input::state("Move Backward", to_underlying(State::MOVE_BACKWARD), SDLK_S),
+			proto::input::state("Move Right",    to_underlying(State::MOVE_RIGHT),    SDLK_D),
+			proto::input::action("Quit", 	     to_underlying(Action::QUIT),         SDLK_Q)
 		}
 	);
 	proto::input::initialize(std::vector{ main });
@@ -49,16 +49,16 @@ int main(int argc, char *argv[])
 	proto::input::add_callback([](auto data) {
 		auto camera = proto::scene::get_scene().camera;
 		if (data.has_state(to_underlying(State::MOVE_FORWARD))) {
-			camera->move(Direction::FORWARD, data.delta_time);
+			camera->move(proto::Direction::FORWARD, data.delta_time);
 		}
 		if (data.has_state(to_underlying(State::MOVE_BACKWARD))) {
-			camera->move(Direction::BACKWARD, data.delta_time);
+			camera->move(proto::Direction::BACKWARD, data.delta_time);
 		}
 		if (data.has_state(to_underlying(State::MOVE_LEFT))) {
-			camera->move(Direction::LEFT, data.delta_time);
+			camera->move(proto::Direction::LEFT, data.delta_time);
 		}
 		if (data.has_state(to_underlying(State::MOVE_RIGHT))) {
-			camera->move(Direction::RIGHT, data.delta_time);
+			camera->move(proto::Direction::RIGHT, data.delta_time);
 		}
 	});
 
@@ -73,6 +73,9 @@ int main(int argc, char *argv[])
 	scene.lights[3] = proto::PointLight(glm::vec3( 3.0f,  1.0f,  2.0f), glm::vec3(0.3f, 0.1f, 0.1f));
 	glm::mat4 model(1.0f);
 	scene.add_node(proto::Node{ mesh, model });
+
+	model = glm::translate(model, glm::vec3(1.0f));
+	scene.add_node(proto::Node{ cube, model });
 
 	while (!quit) {
 		app.run();

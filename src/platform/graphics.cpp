@@ -32,7 +32,7 @@ Graphics::Graphics(window_type window)
 
 Graphics::~Graphics()
 {
-	SDL_GL_DeleteContext(context);
+	SDL_GL_DestroyContext(context);
 }
 
 void Graphics::set_window(window_type window)
@@ -45,9 +45,9 @@ void Graphics::set_vsync(bool vsync) const
 	SDL_GL_SetSwapInterval(vsync);
 }
 
-void Graphics::set_relative_mouse(bool relative_mouse) const
+void Graphics::set_relative_mouse(window_type window, bool relative_mouse) const
 {
-	SDL_SetRelativeMouseMode(relative_mouse);
+	SDL_SetWindowRelativeMouseMode(window, relative_mouse);
 }
 
 } // namespace proto

@@ -17,7 +17,7 @@ void Application::initialize()
 {
 	initialized = true;
 	graphics.set_vsync(true);
-	graphics.set_relative_mouse(true);
+	// graphics.set_relative_mouse(window, true);
 }
 
 void Application::run()

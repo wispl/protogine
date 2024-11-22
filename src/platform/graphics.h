@@ -12,7 +12,7 @@ public:
 	~Graphics();
 	void set_window(window_type window);
 	void set_vsync(bool vsync) const;
-	void set_relative_mouse(bool relative_mouse) const;
+	void set_relative_mouse(window_type window, bool relative_mouse) const;
 private:
 	SDL_GLContext context;
 };
