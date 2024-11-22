@@ -2,6 +2,8 @@
 
 #include <SDL3/SDL.h>
 
+namespace proto {
+
 using window_type = SDL_Window*;
 
 class Window {
@@ -40,3 +42,5 @@ public:
 private:
 	window_type window;
 };
+
+} // namespace proto

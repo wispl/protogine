@@ -3,6 +3,8 @@
 #include <glm/mat4x4.hpp>
 #include <glm/vec3.hpp>
 
+namespace proto {
+
 enum class Direction {
 	FORWARD,
 	LEFT,
@@ -33,3 +35,5 @@ private:
 
 	void update_vectors();
 };
+
+} // namespace proto

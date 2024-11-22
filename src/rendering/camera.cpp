@@ -6,6 +6,8 @@
 
 #include <algorithm>
 
+namespace proto {
+
 Camera::Camera()
 {
 	update_vectors();
@@ -65,3 +67,5 @@ void Camera::update_vectors()
 	right = glm::normalize(glm::cross(front, WORLD_UP));
 	up = glm::normalize(glm::cross(right, front));
 }
+
+} // namespace proto
