@@ -1,4 +1,4 @@
-#include "application.hpp"
+#include "application.h"
 
 #include "platform/window.h"
 #include "platform/graphics.h"
