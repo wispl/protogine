@@ -1,4 +1,4 @@
-target_sources(procgen
+target_sources(${PROJECT_NAME}
 	PRIVATE		camera.cpp
 			camera.h
 			light.h

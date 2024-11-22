@@ -1,4 +1,4 @@
-target_sources(procgen
+target_sources(${PROJECT_NAME}
 	PRIVATE		global_scene.cpp
 			global_scene.h
 			input.cpp
